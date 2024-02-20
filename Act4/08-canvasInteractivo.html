@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> ACTIVIDAD 4 </title>
+    <link rel="stylesheet" href="style.css">
+    <h1>VOCALES</h1>
+    <h2>Da click en las vocales del teclado</h2>
+
+    <style>
+      body
+      {
+        background-color: plum;
+        text-align: center;
+      }
+      h1
+      {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 70px;
+        color: hotpink;
+      }
+      h2
+      {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 50px;
+        color: palevioletred;
+      }
+      canvas 
+      {
+        background-color: rosybrown;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <script src = "keycodes.js"></script>
+    <script>
+    window.onload = function () 
+    {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var imagen = new Image();
+        imagen.src = 'Imagenes/Snoopy.JPEG'; //si se quiere mantener la imagen se pone el context en todos los case
+        //crear variables de cada imagen
+        var imagen2 = new Image();
+        imagen2.src = 'Imagenes/ImagenA.jpg';
+        var imagen3 = new Image();
+        imagen3.src = 'Imagenes/ImagenE.jpg';
+        var imagen4 = new Image();
+        imagen4.src = 'Imagenes/ImagenI.jpg';
+        var imagen5 = new Image();
+        imagen5.src = 'Imagenes/ImagenO.jpg';
+        var imagen6 = new Image();
+        imagen6.src = 'Imagenes/ImagenU.jpg';
+        
+        imagen.onload = function()
+        {
+          context.drawImage(imagen, 230,250,600,500); // las primeras son coordenadas, las otras dos son ancho y alto
+        };
+         
+    
+
+        context.fillStyle = 'pink';
+        //var x = 50;
+        //var y = 50;
+        //context.fillRect(x, y, 100, 100);
+
+        function onKeyboardEvent (event) {
+        switch (event.keyCode) 
+        {
+        case keyCode.A: //se pone la clave del java script
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.drawImage(imagen2, 250,250,500,500);
+         context.font= '40pt Arial';
+         context.fillText('A',470,100);
+         //y-= 5;
+         //context.fillRect(x,y, 100, 100); //para bajar se le suma al y o resta para izquierda es x
+         //console.log("up!");
+          break;
+        case keyCode.E:
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.drawImage(imagen3, 250,250,500,500);
+         context.font= '40pt Arial';
+         context.fillText('E',470,100);
+         //y+= 5;
+         //context.fillRect(x,y, 100, 100);
+          //console.log("down!");
+          break;
+        case keyCode.I:
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.drawImage(imagen4, 250,250,500,500);
+         context.font= '40pt Arial';
+         context.fillText('I',470,100);
+         //x-= 5;
+         //context.fillRect(x,y, 100, 100);
+          //console.log("left!");
+          break;
+        case keyCode.O:
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.drawImage(imagen5, 250,250,500,500);
+         context.font= '40pt Arial';
+         context.fillText('O',470,100);
+         //x+= 5;
+         //context.fillRect(x,y, 100, 100);
+          //console.log("right!");
+          break;
+          case keyCode.U:
+         context.clearRect (0,0, innerWidth, innerHeight);
+         context.drawImage(imagen6, 250,250,500,500);
+         context.font= '40pt Arial';
+         context.fillText('U',470,100);
+         //x+= 5;
+         //context.fillRect(x,y, 100, 100);
+          //console.log("right!");
+          break;
+        default:
+    };
+   }
+   window.addEventListener('keydown', onKeyboardEvent, false);
+}
+    </script>
+  </body>
+</html>
+    
