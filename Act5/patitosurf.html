@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Patito</title>
+    <style>
+      body{
+            text-align: center;
+            background-color:  rgb(150, 208, 218);
+        }
+        h1 {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 40px;
+            color: rgb(62, 68, 147);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Patito Surf </h1>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <aside>Move mouse on canvas element.</aside>
+    <script src="utils.js"></script>
+    <script src="arrow.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          Pato = new Image();
+          Pato.src = "Imagen/pato.jpg";
+        
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+
+        context.translate(400,400);
+        var dx = mouse.x - 200,
+            dy = mouse.y - 200;
+        var radianes = Math.atan2(dy,dx); //radianes
+        console.log(radianes);
+        context.rotate(radianes); //radianes
+        context.drawImage(Pato, -Pato.width/2, -Pato.height/2);
+        context.restore(); //forma parte del clear
+      }());
+    };
+    </script>
+  </body>
+</html>
