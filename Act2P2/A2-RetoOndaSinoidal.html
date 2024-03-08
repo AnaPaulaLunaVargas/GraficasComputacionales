@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+            body 
+            {
+         text-align: center;
+         background-size: cover;
+         background-position: center;
+         background-image: url('Imagen/Estrellas.jpeg');
+            }
+            h1 
+            {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 40px;
+            color: rgb(230, 211, 235);
+            }
+            canvas
+            {
+        background-image: url('Imagen/Fondo.jpeg');
+        background-size: cover;
+        background-position: center;
+            }
+
+    </style>
+  </head>
+  <body>
+    <h1> Estrellita Espacial </h1>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <br>
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d'),
+            angle = 0, 
+            centerScale = 1,
+            range = 0.5,
+            escalaX = 1,
+            escalaY = 1,
+            speed = 0.05,
+            pocisionX = 0,
+            pocisionY = 0,
+            centerY = 0,
+            rangeY = 100,
+            speedX= 1,
+            star = new Image();
+            star.src = "Imagen/star.png";
+            
+            
+          
+        (function drawFrame () {
+          window.requestAnimationFrame(drawFrame, canvas);
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          context.save();
+
+          context.translate(0, 200);
+          escalaX = escalaY = centerScale + Math.sin(angle) * range;
+          pocisionX += speedX;
+          pocisionY = centerY + Math.sin(angle) * rangeY;
+          angle += speed;
+          context.drawImage(star, pocisionX, pocisionY, star.width/2*escalaX, star.height/2*escalaY);
+          context.restore();
+          if (pocisionX > 720 || pocisionX < 0 )
+          {
+            speedX = -speedX;
+          }
+          pocisionX += speedX;
+        }());
+      };
+      </script>
+  </body>
+</html>
