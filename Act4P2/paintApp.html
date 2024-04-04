@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            text-align: center;
+            width: 100%;
+        }
+        .container{
+            margin: 0px auto;
+            text-align: center;
+            width: 1000px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+        }
+        button:hover{
+            opacity: 0.5;
+        }
+        #pink{
+            background-color: #ffc2cc;
+            font: 16px impact;
+            color: white;
+        }
+        #blue{
+            background-color: #7590d5;
+            font: 16px impact;
+            color: white;
+        }
+        #yellow{
+            background-color: #eaea74;
+            font: 16px impact;
+            color: white;
+        }
+        #purple{
+            background-color: #7e3ba7;
+            font: 16px impact;
+            color: white;
+        }
+        #green{
+            background-color: #7ad87a;
+            font: 16px impact;
+            color: white;
+        }
+        #borrar{
+            width: 300px;
+            background-color: #d87a88;
+            font: 16px impact; 
+            color: white;
+        }
+        #Grosor1{
+            background-color: #beffd6;
+            font: 16px impact;
+            color: white;
+        }
+        #Grosor2{
+            background-color: #beffd6;
+            font: 16px impact;
+            color: white;
+        }
+        #Grosor3{
+            background-color: #beffd6;
+            font: 16px impact;
+            color: white;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="container"> 
+        <div class="colores">
+            <button id="pink" type="button" value="#ffc0cb">pink</button> 
+            <button id="blue" type="button" value="#7590d5">blue</button>
+            <button id="yellow" type="button" value="#eaea74">yellow</button>
+            <button id="purple" type="button" value="#7e3ba7">purple</button>
+            <button id="green" type="button" value="#7ad87a">green</button>
+        </div>
+
+        <div class="grosores">
+            <button id="Grosor1" type="button" value="4">GrosorDelgado</button>
+			<button id="Grosor2" type="button" value="8">GrosorGrueso</button>
+			<button id="Grosor3" type="button" value="50">GrosorExtraG</button>
+        </div>
+        <div id="otros">
+            <button id="borrar" type="button">borrar todo</button>
+        <div>
+        <canvas id="canvas" width="800px" height="700px"></canvas>
+        <aside>Click and draw with the mouse.</aside>
+    </div>
+        <script src="utils.js"></script>
+        <script>
+            window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas);
+
+        canvas.addEventListener('mousedown', function () {
+            context.beginPath();
+            context.moveTo(mouse.x, mouse.y);
+            canvas.addEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+        canvas.addEventListener('mouseup', function () {
+            canvas.removeEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+      function onMouseMove () {
+        context.lineTo(mouse.x, mouse.y);
+        context.stroke();
+    }
+        var colores = document.getElementsByClassName('colores')[0];
+        colores.addEventListener('click', function(event) {
+            context.strokeStyle = event.target.value;
+        });
+
+        var grosorButtons = document.querySelectorAll(".grosores Button");
+			grosorButtons.forEach(function(button) {
+			button.addEventListener("click", function() {
+		var grosor = parseInt(this.value); 
+			context.lineWidth = grosor;
+			});
+		});
+
+        var clearButton=document.getElementById("borrar");
+			clearButton.addEventListener("click", function(){
+				context.clearRect(0,0, canvas.width, canvas.height);
+		});
+
+    };
+    </script>
+  </body>
+</html>
