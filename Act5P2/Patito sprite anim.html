@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sprite Animado</title>
+    <style>
+      body { 
+        text-align: center;
+        background-color: cornflowerblue;
+      }
+      canvas{
+        background-image: url('Imagen/fondo.jpg');
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src="sprite.js"></script> 
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var  patito = new sprite(); //*** Puedes cambiar el nombre de la variable
+    
+        patito.x = canvas.width / 2 -128;
+        patito.y = canvas.height / 2 - 128;
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        patito.draw(context); 
+      }());
+
+    };
+    </script>
+  </body>
+</html>
