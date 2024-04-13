@@ -6,10 +6,10 @@
     <style>
       body { 
         text-align: center;
-        background-color: skyblue;
+        background-color: cornflowerblue;
       }
       canvas{
-        background-color: white;
+        background-image: url('Imagen/fondo.jpg');
       }
     </style>
   </head>
@@ -20,15 +20,15 @@
     window.onload = function () {
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
-        var  mario = new sprite(); //*** Puedes cambiar el nombre de la variable
+        var  patito = new sprite(); //*** Puedes cambiar el nombre de la variable
     
-        mario.x = canvas.width / 2;
-        mario.y = canvas.height / 2;
+        patito.x = canvas.width / 2 -128;
+        patito.y = canvas.height / 2 - 128;
 
       (function drawFrame () {
         window.requestAnimationFrame(drawFrame, canvas);
         context.clearRect(0, 0, canvas.width, canvas.height);
-        mario.draw(context); 
+        patito.draw(context); 
       }());
 
     };
