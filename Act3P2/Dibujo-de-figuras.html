@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dibujo en canvas</title>
+    <h1> Mi dibujo </h1>
+
+    <style>
+            body 
+            {
+            text-align: center;
+            }
+            h1 
+            {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 40px;
+            color: rgb(230, 211, 235);
+            }
+            canvas{
+            background-color: #11234d;
+            }
+
+    </style>
+
+    </head>
+    <body>
+
+    <canvas id="canvas" width="900" height="900"></canvas>
+    <script>
+        window.onload = function () {
+      //Our code here...
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+
+         //casa
+          context.save();
+          context.fillStyle="#4d2f11";
+          context.strokeStyle="black";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(370,617); //(x,y) se ponen las coordenadas onde yo quiero poner mi punto
+          context.lineTo(500,500);
+          context.lineTo(630,617);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          //casa abajo
+          context.save();
+          context.fillStyle="#846241";
+          context.strokeStyle="black";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(400,618,200,190); //(x.y.width,heigh)
+          context.strokeRect(400,618,200,190);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+        //pasto
+        context.save();
+          context.fillStyle="green";
+          context.strokeStyle="black";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(0,800,900,100);
+          context.strokeRect(0,800,900,100);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+           //circulo luna
+           context.save();
+          context.fillStyle="yellow";
+          context.strokeStyle="yellow";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(100,75,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+            //circulo blanco
+          context.save();
+          context.fillStyle="#11234d";
+          //context.strokeStyle="1a1d1a";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(130,75,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          //context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //ventana 1
+          context.save();
+          context.fillStyle="#d2c786";
+          context.strokeStyle="black";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(420,640,60,60); //(x.y.width,heigh)
+          context.strokeRect(420,640,60,60);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //ventana 2
+          context.save();
+          context.fillStyle="#d2c786";
+          context.strokeStyle="black";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(520,640,60,60); //(x.y.width,heigh)
+          context.strokeRect(520,640,60,60);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //hongo
+          context.save();
+          context.fillStyle="pink";
+          context.beginPath();
+          context.moveTo(100,800);//se usa para hacer la curva
+          context.quadraticCurveTo(110,770,100,740); //le agrega una curva a la figura triangular los ultimos dos son el punto borrado y los primeros son un punto en especifico fuera del triangulo para hacer la forma circular
+          context.lineTo(50,740);//es para lineas rectas
+          context.quadraticCurveTo(150,650,200,740);
+          context.lineTo(150,740);
+          context.quadraticCurveTo(140,770,150,800);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          // estrella 1
+          context.save();
+          context.fillStyle="yellow";
+          context.strokeStyle="yellow";
+          context.lineWidth=2;
+          context.beginPath();
+          //triangulo uno
+          context.moveTo(650,200); //(x,y) se ponen las coordenadas onde yo quiero poner mi punto
+          context.lineTo(700,100);
+          context.lineTo(750,200);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          //triangulo dos
+          context.save();
+          context.fillStyle="yellow";
+          context.strokeStyle="yellow";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(700,230);
+          context.lineTo(650,125);
+          context.lineTo(750,125);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+            // estrella 2
+            context.save();
+          context.fillStyle="white";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          //triangulo uno
+          context.moveTo(500,320); //(x,y) se ponen las coordenadas onde yo quiero poner mi punto
+          context.lineTo(470,270);
+          context.lineTo(530,270);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          //triangulo dos
+          context.save();
+          context.fillStyle="white";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(500,250);
+          context.lineTo(470,300);
+          context.lineTo(530,300);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+          
+            // estrella 3
+            context.save();
+          context.fillStyle="white";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          //triangulo uno
+          context.moveTo(300,365); //(x,y) se ponen las coordenadas onde yo quiero poner mi punto
+          context.lineTo(270,400);
+          context.lineTo(330,400);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          //triangulo dos
+          context.save();
+          context.fillStyle="white";
+          context.strokeStyle="white";
+          context.lineWidth=2;
+          context.beginPath();
+          context.moveTo(300,415);
+          context.lineTo(270,380);
+          context.lineTo(330,380);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+            // nubecita
+          context.save();
+          context.fillStyle="#9bacd4";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(250,250,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.arc(300,300,50,0,2*Math.PI);
+          //context.arc(300,200,50,0,2*Math.PI);
+          //context.arc(350,300,50,0,2*Math.PI);
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+            // nubecita
+            context.save();
+          context.fillStyle="#9bacd4";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(300,200,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.arc(350,300,50,0,2*Math.PI);
+          //context.arc(300,200,50,0,2*Math.PI);
+          //context.arc(350,300,50,0,2*Math.PI);
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+            // nubecita
+            context.save();
+          context.fillStyle="#9bacd4";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(350,250,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.arc(450,250,50,0,2*Math.PI);
+          //context.arc(300,200,50,0,2*Math.PI);
+          //context.arc(350,300,50,0,2*Math.PI);
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+            // nubecita
+            context.save();
+          context.fillStyle="#9bacd4";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(350,250,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.arc(400,300,50,0,2*Math.PI);
+          //context.arc(300,200,50,0,2*Math.PI);
+          //context.arc(350,300,50,0,2*Math.PI);
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+            // nubecita
+            context.save();
+          context.fillStyle="#9bacd4";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,200,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.arc(350,200,50,0,2*Math.PI);
+          //context.arc(300,200,50,0,2*Math.PI);
+          //context.arc(350,300,50,0,2*Math.PI);
+          context.closePath();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //puerta
+           //ventana 2
+           context.save();
+          context.fillStyle="#d2c786";
+          context.strokeStyle="black";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(520,640,60,60); //(x.y.width,heigh)
+          context.strokeRect(520,640,60,60);
+          context.closePath();
+          context.fill();
+          context.restore();
+    };
+    </script>
+  </body>
+</html>
